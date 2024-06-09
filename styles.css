@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+body {
+  font-family: "JetBrains Mono",monospace ;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+.profileImage img{
+  display: none;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding-top: 30px;
+  min-height: 70px;
+  /* border-bottom: #ff0101 3px solid; */
+
+
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+header ul {
+  padding: 0;
+  list-style: none;
+}
+
+header li {
+  display: inline;
+  padding: 0 20px 0 20px;
+}
+
+header #branding {
+  float: left;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header .highlight, header .current a {
+  color: #77aaff;
+  font-weight: bold;
+}
+
+header a:hover {
+  color: #ccc;
+}
+
+
+section {
+  padding: 20px 0;
+  border-bottom: #e6e6e6 1px solid;
+}
+.navigation{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  
+  
+}
+#about, #projects , #certificates {
+  background: #f4f4f4;
+  padding: 20px 0;
+}
+#projects .container{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#about h2, #projects h2, footer h2 , #certificates h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.project {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: #e6e6e6 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.project h3 {
+  margin-top: 0;
+  align-self: center;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+}
+
+footer a {
+  color: #77aaff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  padding: 10px 20px;
+  background: linear-gradient(to right,#42D392,#6089F3);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.fa-solid{
+  color: #fff;
+}
+
+.GradiantGreenToBlue{
+  background: linear-gradient(-45deg,#42D392,#6089F3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  background-size: 400% 400%;
+  animation: gradiant 5s ease infinite;
+
+}
+.GradiantRedToPurple{
+  background: linear-gradient(-45deg,#ED0A42,#9132FE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  background-size: 400% 400%;
+  animation: gradiant 5s ease infinite;
+}
+.GradiantRedToLessRed{
+  background: linear-gradient(-45deg,#FF2D20,#f35d56);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  background-size: 400% 400%;
+  animation: gradiant 5s ease infinite;
+}
+.GradiantBlueToPurple{
+  background: linear-gradient(-45deg,blue,#9132FE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  background-size: 400% 400%;
+  animation: gradiant 5s ease infinite;
+}
+.GradiantGoldToYellow{
+  background: linear-gradient(-45deg,#FFD700,#00FFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  background-size: 400% 400%;
+  animation: gradiant 5s ease infinite;
+}
+
+.GradiantRedToBlack{
+  background: linear-gradient(-45deg,#EA284A,#0E0E10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  background-size: 400% 400%;
+  animation: gradiant 5s ease infinite;
+}
+.GradiantCyanToGray{
+  background: linear-gradient(-45deg,#58C4DC,#23272F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  background-size: 400% 400%;
+  animation: gradiant 5s ease infinite;
+}
+.GradiantGreenToRed{
+  background: linear-gradient(-45deg,red,green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  background-size: 400% 400%;
+  animation: gradiant 5s ease infinite;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+@keyframes gradiant {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/* Show the button when scrolling down */
+#scrollToTopBtn.show {
+  display: block;
+}
+@media (max-width : 600px ) {
+  header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header h1{
+    font-size: 1.5em;
+    display: none;
+  }
+  header h2{
+    font-size: 0.75em;
+    
+  }
+  header .container{
+    display: flex;
+    flex-direction: column;
+  }
+  header .headlines{
+    align-self: center;
+  }
+  .profileImage{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .profileImage img{
+    display: block;
+    width: 30%;
+    height: auto;
+  }
+  .project li p {
+    font-size: 1px;
+  }
+  
+}
+@media (min-width : 700px){
+  .profileImage img{
+    display: block;
+    width: 10%;
+    height: auto;
+  }
+  .profileImage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .headlines{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;    
+  }
+  .headlines h2{
+    font-size: 1.3em;
+  }
+}
+
+
