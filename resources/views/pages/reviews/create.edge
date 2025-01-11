@@ -1,0 +1,53 @@
+@layout.main()
+  @slot('main')
+<body>
+  <section id="reviews" class="text-xs lg:text-base sm:text-sm">
+    <h2>Review</h2>
+    <p class=" text-center">Please feel free to leave a review of my services if you have worked with me.</p>
+    <div class="container">
+        <form id="reviewForm" action="{{route("reviews.store")}}" method="POST">
+          <div class="review-form w-full lg:w-[70%]  sm:w-[90%]  ">
+          {{ csrfField() }}
+          <div class="form-group">
+            <label for="name">full name or bussiness name :</label>
+            <input type="text" id="name" name="name" required value="{{old('name') ? old('name') : ''}}">
+            @if(flashMessages.has('errors.name'))
+            <p class="form-error-message">{{flashMessages.get(errors.name)}}</p>
+            @endif
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required value="{{old('email') ? old('email') : ''}}">
+            @if(flashMessages.has('errors.email'))
+            <p class="form-error-message">{{flashMessages.get('errors.email')}}</p>
+            @endif
+          </div>
+          <div class="form-group">
+            <label for="rating">Rating:</label>
+            <select id="rating" class="text-yellow-400" name="rating" required>
+              <option class="text-yellow-400" value="5">{{"★".repeat(5)}}</option>
+              <option class="text-yellow-400" value="4">{{"★".repeat(4)}}</option>
+              <option class="text-yellow-400" value="3">{{"★".repeat(3)}}</option>
+              <option class="text-yellow-400" value="2">{{"★".repeat(2)}}</option>
+              <option class="text-yellow-400" value="1">{{"★".repeat(1)}}</option>
+            </select>
+            @if(flashMessages.has('errors.rating'))
+            <p class="form-error-message">{{flashMessages.get('errors.rating')}}</p>
+            @endif
+          </div>
+          <div class="form-group" >
+            <label for="review">Review:</label>
+            <textarea  id="review" name="review" rows="3"  required value="{{old('name') ? old('name') : ''}}"></textarea>
+            @if(flashMessages.has('errors.review'))
+            <p class="form-error-message">{{flashMessages.get('errors.review')}}</p>
+            @endif
+          </div>
+          <button class="submit-button" type="submit">Submit Review</button>
+        </div>
+        </form>
+    </div>
+  </section>
+</body>
+</html>
+@endslot
+@end
