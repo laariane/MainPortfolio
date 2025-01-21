@@ -12,6 +12,7 @@ export default class extends BaseSchema {
       table.string('email_verification_Token')
       table.integer('rating').notNullable()
       table.text('review').notNullable()
+      table.boolean('approved').defaultTo(false)
       table.timestamp('created_at')
       table.timestamp('updated_at')
     })

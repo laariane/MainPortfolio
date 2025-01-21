@@ -1,0 +1,20 @@
+@layout.main()
+@slot('main')
+
+<div class="min-w-[30%] max-w-[40%]  mr-auto ml-auto   ">
+  <h2>Login</h2>
+  <form action="{{route('session.store')}}" class="flex flex-col" method="post">
+    {{csrfField()}}
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+    </div>
+    <div class="form-group">
+      <label for="email">password:</label>
+      <input type="password" name="password" id="password" required>
+    </div>
+    <button class="submit-button" type="submit">Login</button>
+  </form>
+</div>
+@end
+@end

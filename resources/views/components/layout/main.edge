@@ -58,7 +58,7 @@
     @if($slots.meta)
       {{{await $slots.meta()}}}
     @endif
-    @vite(['resources/css/styles.css', 'resources/js/app.js','resources/js/scroll.js','resources/js/scrollToTop.js','resources/css/app.css'])
+    @vite([ 'resources/js/app.js','resources/js/scroll.js','resources/css/app.css'])
   </head>
 <body>
   {{{await $slots.main()}}}

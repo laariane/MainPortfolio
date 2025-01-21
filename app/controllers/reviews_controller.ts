@@ -1,5 +1,5 @@
 import Review from '#models/review'
-import { reviewPostValidator } from '#validators/review'
+import { reviewPostValidator, reviewUpdateValidator } from '#validators/review'
 import type { HttpContext } from '@adonisjs/core/http'
 import mail from '@adonisjs/mail/services/main'
 export default class ReviewsController {
@@ -39,17 +39,36 @@ export default class ReviewsController {
   /**
    * Show individual record
    */
-  async show({ params }: HttpContext) {}
+  async show({ params, view }: HttpContext) {
+    const { id } = params
+
+    return view.render('pages/dashboard/index', {})
+  }
 
   /**
    * Edit individual record
    */
-  async edit({ params }: HttpContext) {}
+  // async edit({ params, request }: HttpContext) {}
 
   /**
    * Handle form submission for the edit action
    */
-  async update({ params, request }: HttpContext) {}
+  async update({ params, request, response }: HttpContext) {
+    const data = request.only(['approve'])
+    //i need to validate data
+    const validatedData = await reviewUpdateValidator.validate(data)
+    if (validatedData.approve === 'approve') {
+      const review = await Review.findOrFail(params.id)
+      review.approved = true
+      review.save()
+    }
+    if (validatedData.approve === 'deny') {
+      const review = await Review.findOrFail(params.id)
+      review.approved = false
+      review.save()
+    }
+    return response.redirect().toRoute('dashboard')
+  }
 
   /**
    * Delete record
