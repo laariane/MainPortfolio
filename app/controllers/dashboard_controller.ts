@@ -7,7 +7,6 @@ export default class DashboardController {
    */
   async index({ view }: HttpContext) {
     const reviews = await Review.findManyBy('is_email_verified', true)
-    console.log(reviews[0].createdAt.diff(reviews[0].updatedAt).toObject())
     return view.render('pages/dashboard/index', { reviews })
   }
 

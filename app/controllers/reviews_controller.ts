@@ -77,7 +77,6 @@ export default class ReviewsController {
 
   async verify({ request, response }: HttpContext) {
     const { token } = request.qs()
-    console.log(token)
     const review = await Review.findBy('emailVerificationToken', token)
     if (!review) {
       return response.redirect('/email_Verification_error')
