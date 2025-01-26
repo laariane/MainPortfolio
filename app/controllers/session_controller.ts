@@ -19,24 +19,8 @@ export default class SessionController {
     await auth.use('web').login(user)
     return response.redirect().toRoute('dashboard')
   }
-
-  /**
-   * Show individual record
-   */
-  async show({ params }: HttpContext) {}
-
-  /**
-   * Edit individual record
-   */
-  async edit({ params }: HttpContext) {}
-
   // /**
   //  * Handle form submission for the edit action
   //  */
   // async update({ params, request }: HttpContext) {}
-
-  /**
-   * Delete record
-   */
-  async destroy({ params }: HttpContext) {}
 }

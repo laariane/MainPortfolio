@@ -28,7 +28,6 @@ router
   .put('/admin/dashboard/review/:id', [ReviewsController, 'update'])
   .as('reviews.update')
   .use(middleware.auth())
-router
-  .delete('/admin/dashboard/review/:id', [ReviewsController, 'destroy'])
-  .as('reviews.delete')
-  .use(middleware.auth())
+router.get('/thank_you', async ({ view }) => {
+  return view.render('pages/thankyou')
+})

@@ -1,19 +1,20 @@
 @layout.main()
 @slot('main')
 <div class=" min-h-screen grid grid-cols-4   " x-data="{reviews : {{JSON.stringify(reviews)}},selectedReview:null}">
-  <div class=" bg-blue-500 border-r border-black flex  flex-col  gap-3 p-3">
+  <div class=" bg-blue-500 border-r border-black overflow-y-auto max-h-screen flex  flex-col overflow-auto gap-3 p-3">
     @each(review in reviews)
-    <a @click.prevent="selectedReview=reviews.find((r)=>r.id==={{review.id}})">
+    <a  @click.prevent="selectedReview=reviews.find((r)=>r.id==={{review.id}})">
       @!component('components/review-card', {
         review : review,
         icon : review.approved? "fa-solid fa-check" : "fa-solid fa-x",
         iconStyle: review.approved? "#63E6BE" : "#ff3838" ,
-        class : [' hover:shadow-gray-950 bg-white hover:cursor-pointer']
+        class : [' hover:shadow-gray-950 bg-white hover:cursor-pointer'],
+        id : review.id
       })
     </a>
     @end
   </div>
-  <div class="bg-white col-span-3 p-4  flex">
+  <div class="bg-white col-span-3 p-4 max-h-screen  flex">
     <template x-if="selectedReview">
       <div class=" flex flex-col bg-gray-200 w-full p-4 rounded-lg shadow-2xl  shadow-gray-950  ">
         <h3 x-text="`from:  ${selectedReview.name}`"></h3>
@@ -23,12 +24,12 @@
         <div class="flex self-center gap-7 mt-auto">
           <form method="POST" :action="`/admin/dashboard/review/${selectedReview.id}?_method=PUT`">
             {{csrfField()}}
-            <button class="p-2 border shadow-lg border-black   hover:shadow-gray-950  bg-success rounded-lg"
+            <button class="btn btn-success"
               type="submit" value="approve" name="approve">Approve</button>
           </form>
           <form :action="`/admin/dashboard/review/${selectedReview.id}?_method=PUT`" method="POST">
             {{csrfField()}}
-            <button class="p-2 border bg-danger/75 shadow-lg border-black   hover:shadow-gray-950 rounded-lg"
+            <button class="btn btn-error"
               type="submit" value="deny" name="approve">Deny</button>
           </form>
         </div>

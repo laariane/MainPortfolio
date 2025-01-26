@@ -35,16 +35,6 @@ export default class ReviewsController {
     })
     return response.redirect('/#reviews')
   }
-
-  /**
-   * Show individual record
-   */
-  async show({ params, view }: HttpContext) {
-    const { id } = params
-
-    return view.render('pages/dashboard/index', {})
-  }
-
   /**
    * Edit individual record
    */
@@ -61,20 +51,15 @@ export default class ReviewsController {
       const review = await Review.findOrFail(params.id)
       review.approved = true
       review.save()
+      return response.redirect().toPath(`/admin/dashboard/#${review.id}`)
     }
     if (validatedData.approve === 'deny') {
       const review = await Review.findOrFail(params.id)
       review.approved = false
       review.save()
+      return response.redirect().toPath(`/admin/dashboard/#${review.id}`)
     }
-    return response.redirect().toRoute('dashboard')
   }
-
-  /**
-   * Delete record
-   */
-  async destroy({ params }: HttpContext) {}
-
   async verify({ request, response }: HttpContext) {
     const { token } = request.qs()
     const review = await Review.findBy('emailVerificationToken', token)

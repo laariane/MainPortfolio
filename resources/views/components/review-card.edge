@@ -1,6 +1,20 @@
-<div  {{$props.merge({ class: ['mr-auto ml-auto flex flex-col border rounded-lg border-slate-950 p-4 w-full shadow-lg '] }).toAttrs()}}>
+<div x-data="{text:{{JSON.stringify(review.review)}}}" id="{{$props.id}}"  {{$props.merge({ class: ['mr-auto ml-auto flex flex-col border rounded-lg border-slate-950 p-4  w-full shadow-lg '] }).toAttrs()}}>
   <p class="text-start GradiantRedToPurple">{{review.name}}</p>
   <p class=" text-yellow-400 "> {{"★".repeat(review.rating)}}</p>
-  <p class="break-words"> {{review.review}}</p>
+  <p class=" text-xs" x-text=" text.length>200 ? text.slice(0,100) + '...' : text"></p>
   <i class="{{$props.icon}} ml-auto" style="color: {{$props.iconStyle}};"></i>
+  <button x-show="text.length>200" class="btn btn-link" onclick="document.getElementById('{{review.id}}').showModal()">show more</button>
+<dialog id="{{review.id}}" class="modal">
+  <div class="modal-box">
+    <p class="text-start GradiantRedToPurple">{{review.name}}</p>
+    <p class=" text-yellow-400 "> {{"★".repeat(review.rating)}}</p>
+    <p class=" text-xs" >{{review.review}}</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 </div>

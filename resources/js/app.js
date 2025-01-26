@@ -1,6 +1,15 @@
 import Alpine from 'alpinejs'
 import intersect from '@alpinejs/intersect'
 window.Alpine = Alpine
+document.querySelectorAll('.inner-link ').forEach(link=>{
+  link.addEventListener("click",function(e){
+    e.preventDefault();
+    const target = this.getAttribute('href')
+    document.querySelector(target).scrollIntoView({
+      behavior:"smooth"
+    })
+  })
+})
 
 //animating
 document.addEventListener('alpine:init', () => {

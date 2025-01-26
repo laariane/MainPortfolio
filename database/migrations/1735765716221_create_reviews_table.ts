@@ -13,8 +13,8 @@ export default class extends BaseSchema {
       table.integer('rating').notNullable()
       table.text('review').notNullable()
       table.boolean('approved').defaultTo(false)
-      table.timestamp('created_at')
-      table.timestamp('updated_at')
+      table.timestamp('created_at').nullable()
+      table.timestamp('updated_at').nullable()
     })
   }
 

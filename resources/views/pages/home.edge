@@ -1,7 +1,7 @@
 @layout.main()
 @slot('main')
 
-<body class="text-xs lg:text-base sm:text-sm">
+<div class="text-xs lg:text-base sm:text-sm text-black">
   <header>
     <div class="container">
       <div class="headlines">
@@ -45,41 +45,47 @@
         Hi, I'm Amine Laariane, a dynamic Fullstack Engineer from Rabat,
         <span class="GradiantGreenToRed">Morocco</span>. With a knack for both
         frontend and backend development, I excel in
-        <a href="" class="GradiantGreenToBlue">Vue.js</a> and
-        <a href="" class="GradiantGreenToBlue">Node.js</a>, bringing
+        <a  class="GradiantGreenToBlue">Vue.js</a> and
+        <a  class="GradiantGreenToBlue">Node.js</a>, bringing
         innovative solutions to life. At
-        <a href="https://www.cegedim.com/Pages/default.aspx">Cegedim</a>, I
+        <a href="https://www.cegedim.com/Pages/default.aspx" class="GradiantGreenToBlue underline "><span class="underline">
+          Cegedim
+        </span>
+      </a>, I
         enhance HR software by building new features and securing APIs.
       </p>
       <p>
         Previously, I resolved complex issues and supported clients at
-        <a href="https://www.sqli.com/int-en">SQLI</a>, working with top
-        technologies like <a href="" class="GradiantRedToPurple">Angular</a>,
-        and <a href="" class="GradiantCyanToGray">React.js</a>. My journey
+        <a   href="https://www.sqli.com/int-en" class="GradiantGreenToBlue">SQLI</a>, working with top
+        technologies like <a  class="GradiantRedToPurple">Angular</a>,
+        and <a  class="GradiantCyanToGray">React.js</a>. My journey
         began with impactful internships, including using
         <span class="GradiantBlueToPurple">machine learning</span> for
         pediatric oncology predictions and developing web applications with
         <span class="GradiantRedToLessRed">Laravel</span>.
       </p>
       <p>
-        I'm skilled in <a href="" class="GradiantGreenToBlue">Node.js</a>,
-        JavaScript, PHP, <a href="" class="GradiantGreenToBlue">Vue.js</a>,
-        SQL, MongoDB, <a href="" class="GradiantRedToPurple">Angular</a>, and
-        <a href="" class="GradiantRedToBlack">Nest.js</a>, and fluent in
+        I'm skilled in <a  class="GradiantGreenToBlue">Node.js</a>,
+        JavaScript, PHP, <a  class="GradiantGreenToBlue">Vue.js</a>,
+        SQL, MongoDB, <a  class="GradiantRedToPurple">Angular</a>, and
+        <a  class="GradiantRedToBlack">Nest.js</a>, and fluent in
         English, French, and Arabic. Passionate about tech, I'm always ready
         for new challenges. Connect with me on LinkedIn or email me at
         laarianeamine@gmail.com. Let's innovate together!
       </p>
     </div>
   </section>
+  <section id="services">
+    @!projectCard()
+  </section>
   <section id="reviews">
     <div class="flex flex-col text-center">
       <h2 class="">Reviews</h2>
-      <a class="  w-fit  mr-auto ml-auto p-2  border border-slate-950 rounded-lg  GradiantGreenToBlue shadow-md   "
+      <a class=" btn  w-fit  mr-auto ml-auto p-2  border border-slate-950 rounded-lg  GradiantGreenToBlue shadow-md   "
         href="{{route('reviews.create')}}">post your review <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
     </div>
     {{--we display the reviews here--}}
-    <div class="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-4 p-2 ">
+    <div class="grid grid-cols-1 lg:grid-cols-4 sm:grid-cols-2 gap-4 p-2   justify-items-center">
       @each(review in reviews)
       @!component('components/review-card', { review : review })
       @end
@@ -237,7 +243,7 @@
       </p>
     </div>
   </footer>
-</body>
+</div>
 <script src="https://kit.fontawesome.com/34f0871485.js" crossorigin="anonymous" defer></script>
 <script type="application/ld+json">
     {

@@ -10,33 +10,34 @@ export default class DashboardController {
     return view.render('pages/dashboard/index', { reviews })
   }
 
-  /**
-   * Display form to create a new record
-   */
-  async create({}: HttpContext) {}
+  //   /**
+  //    * Display form to create a new record
+  //    */
+  //   async create({}: HttpContext) {}
 
-  /**
-   * Handle form submission for the create action
-   */
-  async store({ request }: HttpContext) {}
+  //   /**
+  //    * Handle form submission for the create action
+  //    */
+  //   async store({ request }: HttpContext) {}
 
-  /**
-   * Show individual record
-   */
-  async show({ params }: HttpContext) {}
+  //   /**
+  //    * Show individual record
+  //    */
+  //   async show({ params }: HttpContext) {}
 
-  /**
-   * Edit individual record
-   */
-  async edit({ params }: HttpContext) {}
+  //   /**
+  //    * Edit individual record
+  //    */
+  //   async edit({ params }: HttpContext) {}
 
-  /**
-   * Handle form submission for the edit action
-   */
-  async update({ params, request }: HttpContext) {}
+  //   /**
+  //    * Handle form submission for the edit action
+  //    */
+  //   async update({ params, request }: HttpContext) {}
 
-  /**
-   * Delete record
-   */
-  async destroy({ params }: HttpContext) {}
+  //   /**
+  //    * Delete record
+  //    */
+  //   async destroy({ params }: HttpContext) {}
+  // }
 }

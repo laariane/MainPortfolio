@@ -95,7 +95,7 @@ section {
  align-items: center;
 
 }
-#about, #projects , #certificates, #reviews {
+#about, #projects , #certificates, #reviews, #services {
   background: #f4f4f4;
   padding: 20px 0;
 }
@@ -139,7 +139,7 @@ margin-right: auto;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  @apply  shadow-lg
+  @apply  shadow-inner ;
 }
 .project h3 {
   margin-top: 0;
@@ -178,7 +178,6 @@ footer {
 
 footer a {
   color: #77aaff;
-  text-decoration: none;
 }
 
 footer a:hover {

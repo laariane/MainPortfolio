@@ -1,0 +1,46 @@
+version: "3.8"  # The version of Docker Compose being used. '3.8' is compatible with modern Docker versions.
+
+services:  # Define all the services (containers) needed for your app.
+  adonis:  # The name of your service (container), in this case, for your AdonisJS app.
+    build:  # This defines how to build the Docker image for this service.
+      context: .  # The location of the Dockerfile. Here, it's the current directory ('.').
+    ports:
+    - "3333:3333"  # Maps port 8080 on your host to port 8080 inside the container.
+    environment:  # Environment variables passed to the container.
+      TZ : UTC
+      PORT: 3333
+      LOG_LEVEL: info
+      HOST : 0.0.0.0
+      APP_KEY : tUY4o8rZC050xKkMXXHnIg3QlY9DSV7G
+      NODE_ENV: production
+      SESSION_DRIVER: cookie
+      SMTP_HOST : sandbox.smtp.mailtrap.io
+      SMTP_PORT : 2525
+      SMTP_USERNAME: 7c421f4cf3890b
+      SMTP_PASSWORD: f455f9ead4fdd3
+      DB_HOST: 127.0.0.1
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD:
+      DB_DATABASE: portfolio
+    volumes:
+      - ./build/:/app
+      - /app/node_modules
+    depends_on:
+      - mysql
+  mysql:
+    image:  mysql:8.0
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: portfolio
+      MYSQL_USER: root
+      MYSQL_PASSWORD:
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
